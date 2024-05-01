@@ -71,3 +71,16 @@ it('deve fazer o cadastro com sucesso', () => {
     );
 });
 ```
+
+## Aula 5
+
+Aprendemos a navegar/selecionar itens em uma lista usando as opções `eq`, `first`, `last` e `contains`. Para o teste solicitado, optei por usar `eq` com um índice randômico de 0 a 8:
+
+```javascript
+it('deve selecionar um produto da lista', () => {
+    const indice = Math.floor(Math.random() * 9);
+
+    cy.get('.product-block').eq(indice).click();
+    cy.get('#tab-title-description > a').should('contain', 'Descrição');
+});
+```
