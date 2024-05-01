@@ -43,7 +43,7 @@ describe('login na loja ebac', () => {
 -   Importamos o Faker em um novo arquivo de testes:
 
 ```javascript
-import { faker } from '@faker-js/faker';
+import { fakerPT_BR as faker } from '@faker-js/faker';
 ```
 
 -   Criamos um teste de cadastro de usuário com dados aleatórios utilizando o Faker:
@@ -52,7 +52,7 @@ import { faker } from '@faker-js/faker';
 it('deve fazer o cadastro com sucesso', () => {
     const nome = faker.person.firstName('female');
     const sobrenome = faker.person.lastName();
-    const email = faker.internet.email({
+    const email = faker.internet.exampleEmail({
         firstName: nome,
         lastName: sobrenome,
     });
