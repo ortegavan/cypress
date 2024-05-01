@@ -30,3 +30,9 @@ describe('login na loja ebac', () => {
     });
 });
 ```
+
+## Aula 3
+
+-   Criamos testes para os cenários negativos de login;
+-   Aplicamos hooks `beforeEach` e `afterEach` para centralizar setup e tirar screenshots;
+-   Utilizamos `only` para rodar apenas um teste.
