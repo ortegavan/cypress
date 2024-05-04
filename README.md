@@ -2,6 +2,8 @@
 
 Repositório de estudos com Cypress do curso de Qualidade de Software da EBAC
 
+# Primeiro módulo
+
 ## Aula 1
 
 -   Adicionamos as extensões Cypress Snippets (de Andrew Smith) e ES6 Mocha Snippets (de Cory Noonan) ao VS Code;
@@ -82,5 +84,24 @@ it('deve selecionar um produto da lista', () => {
 
     cy.get('.product-block').eq(indice).click();
     cy.get('#tab-title-description > a').should('contain', 'Descrição');
+});
+```
+
+# Segundo módulo
+
+## Aula 1
+
+-   Configuramos a `baseUrl` no arquivo `cypress.config.js` para evitar repetição de URL;
+-   Utilizamos `fixture` para mockar dados de login e cadastro criando o arquivo `login.json` na pasta `fixtures` e consumindo no teste:
+
+```javascript
+cy.fixture('login').then((login) => {
+    cy.get('#username').type(login.usuario);
+    cy.get('#password').type(login.senha, { log: false });
+    cy.get('.woocommerce-form > .button').click();
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should(
+        'contain',
+        'Olá, Van Ortega',
+    );
 });
 ```

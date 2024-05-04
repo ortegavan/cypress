@@ -1,16 +1,17 @@
 {
-  "name": "cypress",
-  "version": "1.0.0",
-  "description": "Repositório de estudos com Cypress do curso de Qualidade de Software da EBAC",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@faker-js/faker": "^8.4.1",
-    "cypress": "^13.6.0"
-  }
+    "name": "cypress",
+    "version": "1.0.0",
+    "description": "Repositório de estudos com Cypress do curso de Qualidade de Software da EBAC",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "test:cloud": "npx cypress run --record --key 3e33dbcb-e900-4b22-b487-c8830776364e"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@faker-js/faker": "^8.4.1",
+        "cypress": "^13.6.0"
+    }
 }
