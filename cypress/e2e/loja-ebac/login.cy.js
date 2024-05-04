@@ -47,4 +47,12 @@ describe('login na loja ebac', () => {
             );
         });
     });
+
+    it.only('deve fazer login usando comando customizado', () => {
+        cy.login('ortegavan@teste.com', 'qarwiv-2fonDi-qortyv');
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should(
+            'contain',
+            'Olá, Van Ortega',
+        );
+    });
 });

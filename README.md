@@ -105,3 +105,7 @@ cy.fixture('login').then((login) => {
     );
 });
 ```
+
+## Aula 2
+
+Aprendemos a criar comandos customizados para reutilização de código. Os comandos customizados são escritos no arquivo `support/commands.js` e utilizados com a sintaxe `cy.nomeDoComando()`.
