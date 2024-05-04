@@ -5,10 +5,6 @@ describe('login na loja ebac', () => {
         cy.visit('minha-conta');
     });
 
-    afterEach(() => {
-        // cy.screenshot();
-    });
-
     it('deve fazer login com sucesso', () => {
         cy.get('#username').type('ortegavan@teste.com');
         cy.get('#password').type('qarwiv-2fonDi-qortyv');

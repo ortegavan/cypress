@@ -137,3 +137,15 @@ it.only('deve adicionar produtos ao carrinho a partir da massa de dados', () => 
     });
 });
 ```
+
+## Aula 5
+
+Criamos uma conta na nuvem do Cypress e configuramos a aplicação para rodar os testes na nuvem. Para isso, no arquivo `cypress.config.js`, adicionamos id do projeto:
+
+```javascript
+{
+    "projectId": "[id do projeto aqui],
+}
+```
+
+E rodamos o comando `npx cypress run --record --key [chave do projeto]` para enviar os testes para a nuvem.

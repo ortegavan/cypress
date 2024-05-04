@@ -7,6 +7,10 @@ describe('navegação na lista de produtos', () => {
         produtosPage.visitarUrl();
     });
 
+    afterEach(() => {
+        // cy.screenshot();
+    });
+
     it('deve selecionar um produto da lista', () => {
         produtosPage.buscarProdutoNaLista('Abominable Hoodie');
         cy.get('#tab-title-description > a').should('contain', 'Descrição');
@@ -33,7 +37,7 @@ describe('navegação na lista de produtos', () => {
         cy.get('.woocommerce-message').should('exist');
     });
 
-    it.only('deve adicionar produtos ao carrinho a partir da massa de dados', () => {
+    it('deve adicionar produtos ao carrinho a partir da massa de dados', () => {
         cy.fixture('produtos').then((produtos) => {
             produtos.forEach((produto) => {
                 produtosPage.buscarProduto(produto.nome);

@@ -4,7 +4,7 @@
     "description": "Repositório de estudos com Cypress do curso de Qualidade de Software da EBAC",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "npx cypress open",
         "test:cloud": "npx cypress run --record --key 3e33dbcb-e900-4b22-b487-c8830776364e"
     },
     "keywords": [],
