@@ -1,14 +1,25 @@
 /// <reference types="cypress" />
 
+import produtosPage from '../../support/page-objects/produtos.page';
+
 describe('navegação na lista de produtos', () => {
     beforeEach(() => {
-        cy.visit('produtos');
+        produtosPage.visitarUrl();
     });
 
     it('deve selecionar um produto da lista', () => {
-        const indice = Math.floor(Math.random() * 9);
-
-        cy.get('.product-block').eq(indice).click();
+        produtosPage.buscarProdutoNaLista('Abominable Hoodie');
         cy.get('#tab-title-description > a').should('contain', 'Descrição');
     });
+
+    it.only('deve buscar um produto com sucesso', () => {
+        const nomeProduto = 'Abominable Hoodie';
+
+        produtosPage.buscarProduto(nomeProduto);
+        cy.get('.product_title').should('contain', nomeProduto);
+    });
+
+    it('deve visitar a página do produto', () => {});
+
+    it('deve adicionar um produto ao carrinho', () => {});
 });

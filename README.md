@@ -109,3 +109,11 @@ cy.fixture('login').then((login) => {
 ## Aula 2
 
 Aprendemos a criar comandos customizados para reutilização de código. Os comandos customizados são escritos no arquivo `support/commands.js` e utilizados com a sintaxe `cy.nomeDoComando()`.
+
+## Aula 3
+
+Aprendemos sobre `page objects` e como criar uma classe para centralizar os elementos da página. Criamos e exportamos a classe `ProdutosPage` no arquivo `support/page-objects/produtos.page.js` e importamos no teste:
+
+```javascript
+import produtosPage from '../../support/page-objects/produtos.page';
+```
