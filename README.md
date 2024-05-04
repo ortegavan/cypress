@@ -117,3 +117,23 @@ Aprendemos sobre `page objects` e como criar uma classe para centralizar os elem
 ```javascript
 import produtosPage from '../../support/page-objects/produtos.page';
 ```
+
+## Aula 4
+
+Utilizamos `fixture` para mockar dados, agora, usando uma lista. Criamos o arquivo `produtos.json` na pasta `fixtures` e consumimos no teste:
+
+```javascript
+it.only('deve adicionar produtos ao carrinho a partir da massa de dados', () => {
+    cy.fixture('produtos').then((produtos) => {
+        produtos.forEach((produto) => {
+            produtosPage.buscarProduto(produto.nome);
+            produtosPage.adicionarProdutoAoCarrinho(
+                produto.tamanho,
+                produto.cor,
+                produto.quantidade,
+            );
+            cy.get('.woocommerce-message').should('exist');
+        });
+    });
+});
+```

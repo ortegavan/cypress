@@ -12,14 +12,38 @@ describe('navegação na lista de produtos', () => {
         cy.get('#tab-title-description > a').should('contain', 'Descrição');
     });
 
-    it.only('deve buscar um produto com sucesso', () => {
+    it('deve buscar um produto com sucesso', () => {
         const nomeProduto = 'Abominable Hoodie';
 
         produtosPage.buscarProduto(nomeProduto);
         cy.get('.product_title').should('contain', nomeProduto);
     });
 
-    it('deve visitar a página do produto', () => {});
+    it('deve visitar a página do produto', () => {
+        const nomeProduto = 'Abominable Hoodie';
 
-    it('deve adicionar um produto ao carrinho', () => {});
+        produtosPage.buscarProdutoNaLista(nomeProduto);
+        cy.get('.product_title').should('contain', nomeProduto);
+    });
+
+    it('deve adicionar um produto ao carrinho', () => {
+        produtosPage.buscarProduto('Helena Hooded Fleece');
+        produtosPage.adicionarProdutoAoCarrinho('XL', 'Gray', 2);
+
+        cy.get('.woocommerce-message').should('exist');
+    });
+
+    it.only('deve adicionar produtos ao carrinho a partir da massa de dados', () => {
+        cy.fixture('produtos').then((produtos) => {
+            produtos.forEach((produto) => {
+                produtosPage.buscarProduto(produto.nome);
+                produtosPage.adicionarProdutoAoCarrinho(
+                    produto.tamanho,
+                    produto.cor,
+                    produto.quantidade,
+                );
+                cy.get('.woocommerce-message').should('exist');
+            });
+        });
+    });
 });
